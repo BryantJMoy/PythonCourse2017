@@ -13,6 +13,5 @@ class TestStringMethods(unittest.TestCase):
         self.assertEqual(reversewordletters('Hello world!'), '!dlrow olleH')
 
 
-
 if __name__ == '__main__':
     unittest.main()

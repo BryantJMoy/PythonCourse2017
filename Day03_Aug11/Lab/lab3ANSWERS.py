@@ -46,3 +46,12 @@ def reversewordletters(txt):
     else:
         new_txt = txt[::-1]
         return new_txt
+
+
+#To try out try and except(if this error, print)
+def test_func(txt):
+    try:
+        int(txt)
+    except ValueError:
+        print "We'd handle this here..."
+    return txt
