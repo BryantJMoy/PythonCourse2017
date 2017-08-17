@@ -16,16 +16,36 @@ import time
 #Check the documentation page
 #http://docs.tweepy.org/en/v3.2.0/
 #Get access to API
-auth = tweepy.OAuthHandler('your consumer key', 'your consumer secret')
-auth.set_access_token('your access token', 'your access token secret')    
+#auth = tweepy.OAuthHandler('your consumer key', 'your consumer secret')
+#auth.set_access_token('your access token', 'your access token secret')    
+#api = tweepy.API(auth)
+
+auth = tweepy.OAuthHandler(
+auth.set_access_token(
 api = tweepy.API(auth)
+
 
 
 #See rate limit
 api.rate_limit_status()
 
 #Create user objects
-layman = api.get_user('')
-expert = api.get_user('')
-celebrity = api.get_user('')
+mig = api.get_user('miguelmaria') #49
+#seth = api.get_user('seth_j_hill') #990
+#andrew = api.get_user('ajreeves') #1,190
+
+dir(mig)
+
+mig.followers_ids() 
+
+migFollowers= []
+for follower_id in mig.followers_ids():
+	user = api.get_user(follower_id)
+	migFollowers.append(user.screen_name)
+
+
+
+
+
+
 
