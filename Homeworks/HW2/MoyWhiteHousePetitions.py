@@ -89,9 +89,9 @@ date
 
 
 with open('MoyWhiteHousePetitions.csv', 'wb') as f:
-    my_writer = csv.DictWriter(f, fieldnames=("Title of Petition", "Number of Signatures","Issues", "Published Date"))
+    my_writer = csv.DictWriter(f, fieldnames=("Title of Petition", "Published Date", "Issues","Number of Signatures"))
     my_writer.writeheader()
     for i in range(0, len(indvdl_petitions)):
-    	my_writer.writerow({"Title of Petition": title_of_petition[i], "Number of Signatures": num_of_signatures[i], "Issues": petition_issues1[i], "Published Date": date[i]})
+    	my_writer.writerow({"Title of Petition": title_of_petition[i], "Published Date": date[i],"Number of Signatures": num_of_signatures[i], "Issues": petition_issues1[i]})
 
 
