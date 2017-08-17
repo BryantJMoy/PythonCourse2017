@@ -1,6 +1,7 @@
 # HW2 
 from bs4 import BeautifulSoup
 import urllib2
+import csv
 
 #web_address ="https://petitions.whitehouse.gov/petitions"
 #web_page = urllib2.urlopen(web_address)
@@ -15,7 +16,7 @@ import urllib2
 "https://petitions.whitehouse.gov/petitions?page=1"
 "https://petitions.whitehouse.gov/petitions?page=2"
 
-web_address =[ "https://petitions.whitehouse.gov/petitions?page=" + str(i) for i in range(0, 2) ]
+web_address =[  "https://petitions.whitehouse.gov/petitions?page="  +  str(i) for i in range(0, 2) ]
 
 indvdl_petitions = []
 
@@ -78,4 +79,19 @@ for sublist in petition_issues:
 title_of_petition
 num_of_signatures
 petition_issues
-date  
+date
+
+#with open('test_with_fields.csv', 'wb') as f:
+#my_writer = csv.DictWriter(f, fieldnames=("A", "B"))
+#my_writer.writeheader()
+#for i in range(1, 100):
+#my_writer.writerow({"B":i, "A":i-1})
+
+
+with open('MoyWhiteHousePetitions.csv', 'wb') as f:
+    my_writer = csv.DictWriter(f, fieldnames=("Title of Petition", "Number of Signatures","Issues", "Published Date"))
+    my_writer.writeheader()
+    for i in range(0, len(indvdl_petitions)):
+    	my_writer.writerow({"Title of Petition": title_of_petition[i], "Number of Signatures": num_of_signatures[i], "Issues": petition_issues1[i], "Published Date": date[i]})
+
+
