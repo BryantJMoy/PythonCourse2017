@@ -49,7 +49,9 @@ def InsertSort(listn):
 InsertSort(random_l)
 
 
+# Not differect complexities
 
+# selection sort
 
 
 
