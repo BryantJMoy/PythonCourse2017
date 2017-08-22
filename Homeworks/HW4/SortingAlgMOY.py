@@ -55,16 +55,13 @@ InsertSort(random_l)
 
 
 def SelectionSort(listn):
-
-
-while i<len(listn):
-    minim = min(listn[i:])
-    minim_index = listn.index(minim)
-    listn[i],listn[minim_index] = listn[minim_index],listn[i]
-return (listn)
- 
-
-
+	i = 0
+	while i<len(listn):
+		minim = min(listn[i:])
+		minim_index = listn.index(minim)
+		listn[i],listn[minim_index] = listn[minim_index],listn[i]
+		i+=1
+	return listn
 
 
 
