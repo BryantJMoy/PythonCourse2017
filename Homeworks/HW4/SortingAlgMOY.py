@@ -33,5 +33,15 @@ BubbleSort(listn)
 
 
 
+#Insert sort
+
+def InsertSort(listn):
+	for index in range(1,len(listn)):
+		current = listn[index]
+		while index >= 1 and listn[index-1]>current:
+			listn[index]=listn[index-1]
+			index=-1
+		     listn[index] = current
+	return listn
 
 
