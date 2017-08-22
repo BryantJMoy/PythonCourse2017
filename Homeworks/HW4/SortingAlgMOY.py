@@ -10,10 +10,28 @@
 # Graphing in python https://plot.ly/python/
 
 #bubble sort
-x=[4,2,1]
+#x=[4,2,1]
 
 
 #index list of numbers [0]  [1].
 #if [0] > [1] switch then repeat
 
-x[0]>x[1]
+#x[0]>x[1]
+
+#BubbleSort
+
+
+listn= [2,1,3]
+def BubbleSort(listn):
+	for i in range(0,len(listn)):
+		for j in range(i+1, len(listn)): #range(1,len(listn)):
+			if listn[i]>listn[j]:
+				listn[i], listn[j] = listn[j], listn[i]
+	return listn
+
+BubbleSort(listn)
+
+
+
+
+
