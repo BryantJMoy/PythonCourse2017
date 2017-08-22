@@ -65,3 +65,11 @@ def SelectionSort(listn):
 
 
 
+### time
+
+# https://stackoverflow.com/questions/8220801/how-to-use-timeit-module
+
+import timeit
+
+
+
