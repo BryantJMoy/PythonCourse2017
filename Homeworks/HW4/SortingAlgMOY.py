@@ -20,6 +20,8 @@
 
 #BubbleSort
 
+import random
+random_l = random.sample(range(10), 10)
 
 listn= [2,1,3]
 def BubbleSort(listn):
@@ -29,6 +31,7 @@ def BubbleSort(listn):
 				listn[i], listn[j] = listn[j], listn[i]
 	return listn
 
+BubbleSort(random_l)
 BubbleSort(listn)
 
 
@@ -40,8 +43,15 @@ def InsertSort(listn):
 		current = listn[index]
 		while index >= 1 and listn[index-1]>current:
 			listn[index]=listn[index-1]
-			index=-1
-		     listn[index] = current
+			index+=-1
+		listn[index] = current
 	return listn
+InsertSort(random_l)
+
+
+
+
+
+
 
 
