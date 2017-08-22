@@ -9,4 +9,11 @@
 
 # Graphing in python https://plot.ly/python/
 
+#bubble sort
+x=[4,2,1]
 
+
+#index list of numbers [0]  [1].
+#if [0] > [1] switch then repeat
+
+x[0]>x[1]
