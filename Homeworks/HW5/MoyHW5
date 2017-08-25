@@ -1,0 +1,11 @@
+# HW 5
+
+
+class Node:
+	
+	def __init_(self, _value=None, _next=None):
+		self.value=_value
+		self.next= _next
+
+	def __str__(self):
+		return str(self.value)
