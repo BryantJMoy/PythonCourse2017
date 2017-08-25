@@ -9,3 +9,36 @@ class Node:
 
 	def __str__(self):
 		return str(self.value)
+
+
+class LinkedList():
+
+	def __init__(self, value):
+		self.head= Node(value)
+
+	def length(self):
+		AtNode = self.head
+		count = 1
+		while AtNode.next != None:
+			count +=1
+			AtNode = AtNode.next
+		return count
+#LinkedList(3).length
+	def addNode(self, new_value):
+			node = Node(new_value)
+
+
+
+	#def addNodeAfter(self, new_value, after_node):
+
+	#def addNodeBefore(self, new_value, before_node):
+
+	#def removeNode(self, node_to_remove):
+
+	#def removeNodesByValue(self, value):
+
+	#def reverse(self):
+
+	#def __str__(self):
+
+	#def hasCycle(self): #Bonus: Return true if this linked list has a cycle. This is non-trival
