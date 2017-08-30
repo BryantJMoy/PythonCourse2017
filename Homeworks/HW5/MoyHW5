@@ -1,44 +1,123 @@
 # HW 5
 
 
-class Node:
+class Node():
+	def __init__(self, _value=None, _next=None):
+		self.value = _value
+		self.next = _next
 	
-	def __init_(self, _value=None, _next=None):
-		self.value=_value
-		self.next= _next
-
 	def __str__(self):
 		return str(self.value)
 
-
 class LinkedList():
-
 	def __init__(self, value):
-		self.head= Node(value)
+		self.head = value
+		self.count = 1
 
-	def length(self):
+	def length(self): 
+		return self.count
+
+	def addNode(self, new_value): 
 		AtNode = self.head
-		count = 1
 		while AtNode.next != None:
-			count +=1
 			AtNode = AtNode.next
-		return count
-#LinkedList(3).length
-	def addNode(self, new_value):
-			node = Node(new_value)
+		AtNode.next = new_value
+		self.count += 1
+
+	def addNodeAfter(self, new_value, after_node): 
+		new_value.next = after_node.next
+		after_node.next = new_value
+		self.count += 1
+
+	def addNodeBefore(self, new_value, before_node):
+		if before_node == self.head:
+			new_value.next = self.head
+			self.head = new_value
+		else:
+			AtNode = self.head
+			while AtNode.next != before_node:
+				AtNode = AtNode.next
+			AtNode.next = new_value		
+			new_value.next = before_node
+		self.count += 1
+
+	def removeNode(self, node_to_remove):
+		if node_to_remove == self.head:
+			self.head = self.head.next
+			node_to_remove.next = None
+			self.count -= 1
+		else:
+			AtNode = self.head
+			while AtNode.next != node_to_remove:
+				AtNode = AtNode.next
+			AtNode.next = node_to_remove.next
+			self.count -= 1
+
+	def removeNodesByValue(self, value):
+		AtNode = self.head
+		while AtNode != None:
+			if AtNode.value == value:
+				self.removeNode(AtNode)
+				AtNode = AtNode.next
+			else:
+				AtNode = AtNode.next		
+	
+	# for reverse() function
+	def findNodeBefore(self, before_node):
+		AtNode = self.head
+		while AtNode.next != before_node:
+			AtNode = AtNode.next
+		return AtNode
+
+	def reverse(self):
+		AtNode = self.head
+		while AtNode.next != None: 
+			AtNode = AtNode.next
+		new_beginings = AtNode
+		while AtNode != self.head:
+			AtNode.next = self.findNodeBefore(AtNode)
+			AtNode = AtNode.next
+		self.head.next = None
+		self.head = new_beginings
+		return self
+
+	def __str__(self):
+		ll = ''
+		AtNode = self.head
+		while AtNode.next != None:
+			ll += str(AtNode.value)+', '
+			AtNode = AtNode.next
+		ll += str(AtNode.value)
+		return "Node List: " + ll
+
+#def hasCycle(self): #Bonus: Return true if this linked list has a cycle. This is non-trival
+
+#################
+##### TEST ######
+#################
+
+N1 = Node(5)
+ll = LinkedList(N1) #5
+ll.length() #1
+N2 = Node(12)
+ll.addNode(N2)
+ll.length() #2
+N3 = Node(9)
+N4 = Node(2)
+ll.addNode(N3)
+ll.addNode(N4)
+print ll
+N_4 = Node(4)
+ll.addNodeAfter(N_4, N3)
+# 5,12,9,4,2
+N_2 = Node(2)
+ll.addNodeBefore(N_2, N2)
+#5,2,12,9,3,2
+ll.removeNode(N_2) 
+#5, 12, 9, 4, 2
+ll.removeNodesByValue(4) # Remove the head value
+#Node List: 5, 12, 9, 2
+print ll.reverse()
+#Node List: 2, 9, 12, 5
 
 
-
-	#def addNodeAfter(self, new_value, after_node):
-
-	#def addNodeBefore(self, new_value, before_node):
-
-	#def removeNode(self, node_to_remove):
-
-	#def removeNodesByValue(self, value):
-
-	#def reverse(self):
-
-	#def __str__(self):
-
-	#def hasCycle(self): #Bonus: Return true if this linked list has a cycle. This is non-trival
